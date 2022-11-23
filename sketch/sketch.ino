@@ -1,18 +1,14 @@
 
 const int LM35 = 0;
-
 float temperatura = 0; 
 int ADClido = 0;
 
-const int LEDRED = 12;
+const int LEDYELLOW = 10;
 const int LEDGREEN = 11;
-const int LEDYELLOW = 12;
-
+const int LEDRED = 12;
 
 int ldr = A0;//Atribui A0 a variável ldr
-int valorldr = 0;//Declara a variável valorldr como inteiro
-
-
+int valorldr = 0;
 
 void setup() {
   Serial.begin(9600);
@@ -33,25 +29,29 @@ void loop() {
   
   Serial.print("Temperatura = ");
   Serial.println(temperatura);
-  Serial.print("LDR = ");
-  Serial.println(valorldr);
-    
+  
+
+  // LDR
   if(valorldr >= 900){
+    Serial.print("STATUS - SEM PRODUTO");
+    Serial.println(valorldr);
+  
     digitalWrite(LEDYELLOW, HIGH);
   }else{
+    Serial.print("STATUS - COM PRODUTO");
+    Serial.println(valorldr);
+  
     digitalWrite(LEDYELLOW, LOW);
   }
-  
+
+  // TEMP.
   if(temperatura > 27){ // setei como 30ºC
     digitalWrite(LEDRED, HIGH);
+    digitalWrite(LEDGREEN, LOW);
   }else{
     digitalWrite(LEDRED, LOW);
+    digitalWrite(LEDGREEN, HIGH);
   }
   
-  if(temperatura <= 26.5){
-    digitalWrite(LEDGREEN, HIGH);
-  }else{
-    digitalWrite(LEDGREEN, LOW);
-  }
-
+  delay(1000);
 }
