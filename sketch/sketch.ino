@@ -32,6 +32,7 @@ void loop() {
   if(valorldr >= 900){
     Serial.print("STATUS - SEM PRODUTO");  
     Serial.print("STATUS - SEM PRODUTO");
+    Serial.println(" ");
 
     digitalWrite(LEDYELLOW, HIGH);
     digitalWrite(LEDRED, LOW);
@@ -39,7 +40,7 @@ void loop() {
 
   }else{
   
-    Serial.print("STATUS - COM PRODUTO");
+    Serial.println("STATUS - COM PRODUTO");
     
     Serial.print("Temperatura = ");
     Serial.println(temperatura);
@@ -47,7 +48,7 @@ void loop() {
     digitalWrite(LEDYELLOW, LOW);
 
     // TEMP.
-    if(temperatura > 27){ // setei como 30ºC
+    if(temperatura > 28){ // setei como 30ºC
       digitalWrite(LEDRED, HIGH);
       digitalWrite(LEDGREEN, LOW);
     }else{
