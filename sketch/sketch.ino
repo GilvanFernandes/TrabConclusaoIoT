@@ -30,7 +30,6 @@ void loop() {
 
   // LDR
   if(valorldr >= 900){
-    Serial.print("STATUS - SEM PRODUTO");  
     Serial.print("STATUS - SEM PRODUTO");
     Serial.println(" ");
 
